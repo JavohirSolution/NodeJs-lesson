@@ -1,11 +1,12 @@
-import express from 'express';
-const app = express();
-const PORT = 8000;
+const http = require('http');
 
-app.get('/', (req, res) => {
-    res.send('welcome');
+const server = http.createServer((req,res) => {
+    console.log(req.url);
+
+    res.write("<h2>Salom dunyo</h2>");
+    res.end();
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is running on:http://localhost:${PORT}`)
+server.listen(8000, () => {
+    console.log("Server has been started on port: 8000");
 })
